@@ -13,11 +13,13 @@
 
 ## 2. 如何运行一个后缀名为.py的文件
 
-请参考本页面的视频“如何运行一个Python文件.mp4”。请注意，和课程不同，视频使用的是“python”命令而不是“python3”命令，但实际上没有区别，使用python3即可。
+请参考本页面的视频“如何运行一个Python文件.mp4”。请注意，和课程不同，视频使用的是“python”命令而不是“python3”命令，但实际上没有区别，使用python即可。
 
 ## 3. 在命令行使用“python”命令，提示“python”不是内部或外部命令，也不是可运行的程序或批处理文件。
 
 如果你未下载Python，请根据课程提示下载。如果你已下载Python，请参考此[中文链接](http://www.runoob.com/python/python-install.html)中“环境变量配置”部分，配置环境变量。如果英文阅读能力较好，可参考此[英文链接](https://stackoverflow.com/questions/13596505/python-not-working-in-command-prompt)。
+
+需要提醒的是，添加环境变量时，**一定要添加安装时的安装路径**。有部分学员添加的是“开始”菜单中的路径（路径名包含“Start Menu”，是不正确的）。
 
 
 

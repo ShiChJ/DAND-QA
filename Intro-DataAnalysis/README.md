@@ -93,12 +93,7 @@ conda install unicodecsv #在新环境中安装模块
 
 请注意，以后进入所有notebook的时候，都需要切换到py27环境。你安装所有包时，都需要先使用activate py27命令，在新环境中安装。
 
-**13. 没有任何Python基础，如何准备项目2的课程内容？**
-
-- 建议先修Udacity的[计算机科学导论](https://cn.udacity.com/course/intro-to-computer-science--cs101)
-- 入门书：[《Python编程快速上手 : 让繁琐工作自动化》](https://book.douban.com/subject/26836700/)
-
-**14. 在Mac环境下运行Jupyter Notebook报如下错误：**
+**13. 在Mac环境下运行Jupyter Notebook报如下错误：**
 
 ![](https://i.imgur.com/z5IRAeV.jpg)
 
@@ -108,12 +103,17 @@ conda install unicodecsv #在新环境中安装模块
 jupyter notebook --NotebookApp.iopub_data_rate_limit=10000000000
 ```
 
-**15. 运行Conda命令时出现“Missing write permissions”错误：**
+**14. 运行Conda命令时出现“Missing write permissions”错误：**
 
 请使用如下方式打开Anaconda Prompt，再次运行Conda命令：
 
 ![](https://i.imgur.com/V5HdRn2.png)
 
+**15. 有没有其他数据分析相关的书籍和学习资料？**
+
+链接：https://pan.baidu.com/s/1eUfFebK 密码：wio6
+
+网盘内容会不定期更新。注意，**请不要用微信自带的浏览器打开**，否则会显示链接不存在。
 
 
 

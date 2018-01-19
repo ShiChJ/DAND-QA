@@ -31,7 +31,6 @@
 
 目前并没有这个Lab，直接开始下一课的学习即可。英文版课程中对此做了解释（还未完成lab的内容），中文课程没有翻译导致部分学员感到困惑，特此说明。
 
-
 # 学习资源推荐
 
 ## 中文
@@ -44,5 +43,7 @@
 ## 英文
 1. [Python for Everybody（MOOC，视频免费，练习收费，部分视频配有中文字幕）](https://zh.coursera.org/specializations/python)
 2. [Fundamentals of Computing（MOOC，视频免费，练习收费，大部分视频配有中文字幕）](https://zh.coursera.org/specializations/computer-fundamentals)
+3. [DataCamp（数据科学学习网站，课程收费）](https://www.datacamp.com/)
+4. [Codecademy（在线交互式编程学习网站，部分内容收费）](https://www.codecademy.com/)
 
-如果认为学习较为困难，建议使用Udacity课程+上述资源中的任意一项进行学习。
+以上资源均为往届数据分析学员推荐或助教本人使用过的资源，质量较高。如果认为学习较为困难，建议使用Udacity课程+上述资源中的任意1-2项搭配学习。

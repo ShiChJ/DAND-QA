@@ -27,5 +27,22 @@
 
 ![](https://i.imgur.com/MzIgQAS.png)
 
+## 5.课程3结尾提到的Lab在哪？
+
+目前并没有这个Lab，直接开始下一课的学习即可。英文版课程中对此做了解释（还未完成lab的内容），中文课程没有翻译导致部分学员感到困惑，特此说明。
 
 
+# 学习资源推荐
+
+## 中文
+1. [菜鸟Python教程（网站）](http://www.runoob.com/python3/python3-tutorial.html)
+2. [廖雪峰的Python教程（网站）（数据分析入门学员推荐）](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)
+3. [Python编程快速上手（书籍）（数据分析入门学员推荐）](https://book.douban.com/subject/26836700/)
+4. [计算机科学和Python编程导论（MOOC）](https://www.xuetangx.com/courses/course-v1:MITx+6_00_1x+sp/about)
+5. [Python语言程序设计（MOOC）](http://www.icourse163.org/course/BIT-268001)
+
+## 英文
+1. [Python for Everybody（MOOC，视频免费，练习收费，部分视频配有中文字幕）](https://zh.coursera.org/specializations/python)
+2. [Fundamentals of Computing（MOOC，视频免费，练习收费，大部分视频配有中文字幕）](https://zh.coursera.org/specializations/computer-fundamentals)
+
+如果认为学习较为困难，建议使用Udacity课程+上述资源中的任意一项进行学习。

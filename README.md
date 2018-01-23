@@ -20,9 +20,7 @@
 
 通过所在群的对应项目，即审阅页面显示“Meet Specifications” （如果显示“Requires Changes”，说明没有通过，需要修改并再次提交审阅）。
 
-通过项目后，在群内发布2个内容：通过截图+通关心得。通关心得请加【通关心得】标签方便检索内容；发布后@助教，确认后会传送到下一个项目群。
-
-如果**发送了相关信息，助教没有在24小时内拉入下一个通关群**，请再次@助教。
+通过项目后，请填写[通关申请表](https://www.gdgdocs.org/forms/d/e/1FAIpQLSfCYgQA9YUmoFXykI00z3IZP9HkeWUfgMrmT-PKkeBkf4Wr9A/viewform?usp=sf_link)，填写完毕后在群内@助教，表示已通关并完成填表。助教随后会拉你入群。
 
 **2. 项目中标红的截止日期是什么意思？**
 

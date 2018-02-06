@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>fix_datatypes_cyl-zh</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>fix_datatypes_air_pollution-zh</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11775,9 +11775,9 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#20462;&#27491;-cyl-&#25968;&#25454;&#31867;&#22411;">&#20462;&#27491; <code>cyl</code> &#25968;&#25454;&#31867;&#22411;<a class="anchor-link" href="#&#20462;&#27491;-cyl-&#25968;&#25454;&#31867;&#22411;">&#182;</a></h1><ul>
-<li>2008：从字符串中提取整数</li>
-<li>2018：将浮点转换成整数</li>
+<h1 id="&#20462;&#27491;-air_pollution_score-&#25968;&#25454;&#31867;&#22411;">&#20462;&#27491; <code>air_pollution_score</code> &#25968;&#25454;&#31867;&#22411;<a class="anchor-link" href="#&#20462;&#27491;-air_pollution_score-&#25968;&#25454;&#31867;&#22411;">&#182;</a></h1><ul>
+<li>2008：将字符串转换成浮点</li>
+<li>2018：将整数转换成浮点</li>
 </ul>
 
 </div>
@@ -11804,59 +11804,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 检查 2008 cyl 列的值数量</span>
-<span class="n">df_08</span><span class="p">[</span><span class="s1">&#39;cyl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[2]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(6 cyl)     409
-(4 cyl)     283
-(8 cyl)     199
-(5 cyl)      48
-(12 cyl)     30
-(10 cyl)     14
-(2 cyl)       2
-(16 cyl)      1
-Name: cyl, dtype: int64</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>阅读  <a href="https://stackoverflow.com/questions/35376387/extract-int-from-string-in-pandas">这里</a>，了解如何在下一步用 Pandas 从字符串中提取整数</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 从 2008 cyl 列的字符串中提取整数</span>
-<span class="n">df_08</span><span class="p">[</span><span class="s1">&#39;cyl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_08</span><span class="p">[</span><span class="s1">&#39;cyl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;(\d+)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 尝试使用 Pandas 的 to_numeric 或 astype 功能将</span>
+<span class="c1"># 2008 air_pollution_score 列转换成浮点——无法转换</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df_08</span><span class="p">[</span><span class="s1">&#39;air_pollution_score&#39;</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -11872,24 +11822,224 @@ Name: cyl, dtype: int64</pre>
 <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/lib/python3.6/site-packages/ipykernel_launcher.py:2: FutureWarning: currently extract(expand=None) means expand=False (return Index/Series/DataFrame) but in a future version of pandas this will be changed to expand=True (return DataFrame)
-  
-</pre>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">pandas/_libs/src/inference.pyx</span> in <span class="ansi-cyan-fg">pandas._libs.lib.maybe_convert_numeric (pandas/_libs/lib.c:56156)</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-red-fg">ValueError</span>: Unable to parse string &#34;6/4&#34;
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-2-6d9783b53b05&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># 尝试使用 Pandas 的 to_numeric 或 astype 功能将</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-red-fg"># 2008 air_pollution_score 列转换成浮点——无法转换</span>
+<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>pd<span class="ansi-blue-fg">.</span>to_numeric<span class="ansi-blue-fg">(</span>df_08<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;air_pollution_score&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.6/site-packages/pandas/core/tools/numeric.py</span> in <span class="ansi-cyan-fg">to_numeric</span><span class="ansi-blue-fg">(arg, errors, downcast)</span>
+<span class="ansi-green-intense-fg ansi-bold">    124</span>             coerce_numeric <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">False</span> <span class="ansi-green-fg">if</span> errors <span class="ansi-green-fg">in</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;ignore&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;raise&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">else</span> <span class="ansi-green-fg">True</span>
+<span class="ansi-green-intense-fg ansi-bold">    125</span>             values = lib.maybe_convert_numeric(values, set(),
+<span class="ansi-green-fg">--&gt; 126</span><span class="ansi-red-fg">                                                coerce_numeric=coerce_numeric)
+</span><span class="ansi-green-intense-fg ansi-bold">    127</span> 
+<span class="ansi-green-intense-fg ansi-bold">    128</span>     <span class="ansi-green-fg">except</span> Exception<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">pandas/_libs/src/inference.pyx</span> in <span class="ansi-cyan-fg">pandas._libs.lib.maybe_convert_numeric (pandas/_libs/lib.c:56638)</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-red-fg">ValueError</span>: Unable to parse string &#34;6/4&#34; at position 582</pre>
 </div>
 </div>
 
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#35299;&#20915;&#38382;&#39064;">&#35299;&#20915;&#38382;&#39064;<a class="anchor-link" href="#&#35299;&#20915;&#38382;&#39064;">&#182;</a></h1><p>这个问题看起来不像数据类型转换那样简单。根据上述错误，第 582 行的值是 "6/4"。我们检验一下。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_08</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">582</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>model                   MERCEDES-BENZ C300
+displ                                    3
+cyl                                      6
+trans                              Auto-L7
+drive                                  2WD
+fuel                           ethanol/gas
+veh_class                        small car
+air_pollution_score                    6/4
+city_mpg                             13/18
+hwy_mpg                              19/25
+cmb_mpg                              15/21
+greenhouse_gas_score                   7/6
+smartway                                no
+Name: 582, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#23384;&#22312;&#36825;&#20010;&#38382;&#39064;&#30340;&#19981;&#21482;&#26159;&#31354;&#27668;&#27745;&#26579;&#20998;&#25968;&#65281;">&#23384;&#22312;&#36825;&#20010;&#38382;&#39064;&#30340;&#19981;&#21482;&#26159;&#31354;&#27668;&#27745;&#26579;&#20998;&#25968;&#65281;<a class="anchor-link" href="#&#23384;&#22312;&#36825;&#20010;&#38382;&#39064;&#30340;&#19981;&#21482;&#26159;&#31354;&#27668;&#27745;&#26579;&#20998;&#25968;&#65281;">&#182;</a></h1><p>mpg 列和温室气体分数也存在同样的问题。这可能是它们都被保存为字符串的原因。根据我在 PDF 文档中找到的 <a href="http://www.fueleconomy.gov/feg/findacarhelp.shtml#airPollutionScore">这个链接</a>，</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>“如果车辆采用多种燃料提供动力，应该提供每个燃料类型的估值。”</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>所以，采用混合动力的所有车辆，例如上面这辆车（采用乙醇和天然气），它们的字符串具有两个值，每种燃料为一个值。这有点复杂，我将给你展示如何用 2008 数据集实现这个效果，之后你用 2018 数据集尝试一下。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 首先，获取 2008 年的所有混合动力</span>
+<span class="n">hb_08</span> <span class="o">=</span> <span class="n">df_08</span><span class="p">[</span><span class="n">df_08</span><span class="p">[</span><span class="s1">&#39;fuel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)]</span>
+<span class="n">hb_08</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>model</th>
+      <th>displ</th>
+      <th>cyl</th>
+      <th>trans</th>
+      <th>drive</th>
+      <th>fuel</th>
+      <th>veh_class</th>
+      <th>air_pollution_score</th>
+      <th>city_mpg</th>
+      <th>hwy_mpg</th>
+      <th>cmb_mpg</th>
+      <th>greenhouse_gas_score</th>
+      <th>smartway</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>582</th>
+      <td>MERCEDES-BENZ C300</td>
+      <td>3.0</td>
+      <td>6</td>
+      <td>Auto-L7</td>
+      <td>2WD</td>
+      <td>ethanol/gas</td>
+      <td>small car</td>
+      <td>6/4</td>
+      <td>13/18</td>
+      <td>19/25</td>
+      <td>15/21</td>
+      <td>7/6</td>
+      <td>no</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>好像这个数据集只有一个混合动力车，而 2018 年有很多。但是别担心，现在进行的步骤对它同样适用！</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 再次检查 2008 cyl 列的值数量，确认更改</span>
-<span class="n">df_08</span><span class="p">[</span><span class="s1">&#39;cyl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2018年的混合动力</span>
+<span class="n">hb_18</span> <span class="o">=</span> <span class="n">df_18</span><span class="p">[</span><span class="n">df_18</span><span class="p">[</span><span class="s1">&#39;fuel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)]</span>
+<span class="n">hb_18</span>
 </pre></div>
 
 </div>
@@ -11906,17 +12056,652 @@ Name: cyl, dtype: int64</pre>
 
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
 
-<div class="output_text output_subarea output_execute_result">
-<pre>6     409
-4     283
-8     199
-5      48
-12     30
-10     14
-2       2
-16      1
-Name: cyl, dtype: int64</pre>
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>model</th>
+      <th>displ</th>
+      <th>cyl</th>
+      <th>trans</th>
+      <th>drive</th>
+      <th>fuel</th>
+      <th>veh_class</th>
+      <th>air_pollution_score</th>
+      <th>city_mpg</th>
+      <th>hwy_mpg</th>
+      <th>cmb_mpg</th>
+      <th>greenhouse_gas_score</th>
+      <th>smartway</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>52</th>
+      <td>BMW 330e</td>
+      <td>2.0</td>
+      <td>4</td>
+      <td>SemiAuto-8</td>
+      <td>2WD</td>
+      <td>Gasoline/Electricity</td>
+      <td>small car</td>
+      <td>3</td>
+      <td>28/66</td>
+      <td>34/78</td>
+      <td>30/71</td>
+      <td>10</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>BMW 530e</td>
+      <td>2.0</td>
+      <td>4</td>
+      <td>SemiAuto-8</td>
+      <td>2WD</td>
+      <td>Gasoline/Electricity</td>
+      <td>small car</td>
+      <td>7</td>
+      <td>27/70</td>
+      <td>31/75</td>
+      <td>29/72</td>
+      <td>10</td>
+      <td>Elite</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>BMW 530e</td>
+      <td>2.0</td>
+      <td>4</td>
+      <td>SemiAuto-8</td>
+      <td>4WD</td>
+      <td>Gasoline/Electricity</td>
+      <td>small car</td>
+      <td>7</td>
+      <td>27/66</td>
+      <td>31/68</td>
+      <td>28/67</td>
+      <td>10</td>
+      <td>Elite</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>BMW 740e</td>
+      <td>2.0</td>
+      <td>4</td>
+      <td>SemiAuto-8</td>
+      <td>4WD</td>
+      <td>Gasoline/Electricity</td>
+      <td>large car</td>
+      <td>3</td>
+      <td>25/62</td>
+      <td>29/68</td>
+      <td>27/64</td>
+      <td>9</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>189</th>
+      <td>CHEVROLET Impala</td>
+      <td>3.6</td>
+      <td>6</td>
+      <td>SemiAuto-6</td>
+      <td>2WD</td>
+      <td>Ethanol/Gas</td>
+      <td>large car</td>
+      <td>5</td>
+      <td>14/18</td>
+      <td>20/28</td>
+      <td>16/22</td>
+      <td>4</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>CHEVROLET Silverado 15</td>
+      <td>4.3</td>
+      <td>6</td>
+      <td>Auto-6</td>
+      <td>2WD</td>
+      <td>Ethanol/Gas</td>
+      <td>pickup</td>
+      <td>5</td>
+      <td>12/18</td>
+      <td>16/24</td>
+      <td>14/20</td>
+      <td>4</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>CHEVROLET Silverado 15</td>
+      <td>4.3</td>
+      <td>6</td>
+      <td>Auto-6</td>
+      <td>4WD</td>
+      <td>Ethanol/Gas</td>
+      <td>pickup</td>
+      <td>5</td>
+      <td>12/17</td>
+      <td>15/22</td>
+      <td>13/19</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>CHEVROLET Silverado 15</td>
+      <td>5.3</td>
+      <td>8</td>
+      <td>Auto-6</td>
+      <td>2WD</td>
+      <td>Ethanol/Gas</td>
+      <td>pickup</td>
+      <td>3</td>
+      <td>12/16</td>
+      <td>17/23</td>
+      <td>14/19</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>212</th>
+      <td>CHEVROLET Suburban 1500</td>
+      <td>5.3</td>
+      <td>8</td>
+      <td>Auto-6</td>
+      <td>2WD</td>
+      <td>Ethanol/Gas</td>
+      <td>standard SUV</td>
+      <td>3</td>
+      <td>12/16</td>
+      <td>17/23</td>
+      <td>14/19</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>214</th>
+      <td>CHEVROLET Suburban 1500</td>
+      <td>5.3</td>
+      <td>8</td>
+      <td>Auto-6</td>
+      <td>4WD</td>
+      <td>Ethanol/Gas</td>
+      <td>standard SUV</td>
+      <td>3</td>
+      <td>11/16</td>
+      <td>15/22</td>
+      <td>12/18</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>216</th>
+      <td>CHEVROLET Tahoe 1500</td>
+      <td>5.3</td>
+      <td>8</td>
+      <td>Auto-6</td>
+      <td>2WD</td>
+      <td>Ethanol/Gas</td>
+      <td>standard SUV</td>
+      <td>3</td>
+      <td>12/16</td>
+      <td>17/23</td>
+      <td>14/19</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>218</th>
+      <td>CHEVROLET Tahoe 1500</td>
+      <td>5.3</td>
+      <td>8</td>
+      <td>Auto-6</td>
+      <td>4WD</td>
+      <td>Ethanol/Gas</td>
+      <td>standard SUV</td>
+      <td>3</td>
+      <td>11/16</td>
+      <td>16/22</td>
+      <td>13/18</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>225</th>
+      <td>CHEVROLET Volt</td>
+      <td>1.5</td>
+      <td>4</td>
+      <td>CVT</td>
+      <td>2WD</td>
+      <td>Gasoline/Electricity</td>
+      <td>small car</td>
+      <td>3</td>
+      <td>43/113</td>
+      <td>42/99</td>
+      <td>42/106</td>
+      <td>10</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>226</th>
+      <td>CHEVROLET Volt</td>
+      <td>1.5</td>
+      <td>4</td>
+      <td>CVT</td>
+      <td>2WD</td>
+      <td>Gasoline/Electricity</td>
+      <td>small car</td>
+      <td>7</td>
+      <td>43/113</td>
+      <td>42/99</td>
+      <td>42/106</td>
+      <td>10</td>
+      <td>Elite</td>
+    </tr>
+    <tr>
+      <th>227</th>
+      <td>CHRYSLER 300</td>
+      <td>3.6</td>
+      <td>6</td>
+      <td>Auto-8</td>
+      <td>2WD</td>
+      <td>Ethanol/Gas</td>
+      <td>large car</td>
+      <td>3</td>
+      <td>14/19</td>
+      <td>22/30</td>
+      <td>17/23</td>
+      <td>5</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>229</th>
+      <td>CHRYSLER 300</td>
+      <td>3.6</td>
+      <td>6</td>
+      <td>Auto-8</td>
+      <td>4WD</td>
+      <td>Ethanol/Gas</td>
+      <td>large car</td>
+      <td>3</td>
+      <td>13/18</td>
+      <td>20/27</td>
+      <td>16/21</td>
+      <td>4</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>244</th>
+      <td>DODGE Charger</td>
+      <td>3.6</td>
+      <td>6</td>
+      <td>Auto-8</td>
+      <td>2WD</td>
+      <td>Ethanol/Gas</td>
+      <td>large car</td>
+      <td>3</td>
+      <td>14/19</td>
+      <td>22/30</td>
+      <td>17/23</td>
+      <td>5</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>246</th>
+      <td>DODGE Charger</td>
+      <td>3.6</td>
+      <td>6</td>
+      <td>Auto-8</td>
+      <td>4WD</td>
+      <td>Ethanol/Gas</td>
+      <td>large car</td>
+      <td>3</td>
+      <td>13/18</td>
+      <td>20/27</td>
+      <td>16/21</td>
+      <td>4</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>300</th>
+      <td>FORD Fusion Energi Plug-in Hybrid</td>
+      <td>2.0</td>
+      <td>4</td>
+      <td>CVT</td>
+      <td>2WD</td>
+      <td>Gasoline/Electricity</td>
+      <td>midsize car</td>
+      <td>7</td>
+      <td>43/102</td>
+      <td>41/91</td>
+      <td>42/97</td>
+      <td>10</td>
+      <td>Elite</td>
+    </tr>
+    <tr>
+      <th>326</th>
+      <td>GMC Sierra 15</td>
+      <td>4.3</td>
+      <td>6</td>
+      <td>Auto-6</td>
+      <td>2WD</td>
+      <td>Ethanol/Gas</td>
+      <td>pickup</td>
+      <td>5</td>
+      <td>12/18</td>
+      <td>16/24</td>
+      <td>14/20</td>
+      <td>4</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>327</th>
+      <td>GMC Sierra 15</td>
+      <td>4.3</td>
+      <td>6</td>
+      <td>Auto-6</td>
+      <td>4WD</td>
+      <td>Ethanol/Gas</td>
+      <td>pickup</td>
+      <td>5</td>
+      <td>12/17</td>
+      <td>15/22</td>
+      <td>13/19</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>328</th>
+      <td>GMC Sierra 15</td>
+      <td>5.3</td>
+      <td>8</td>
+      <td>Auto-6</td>
+      <td>2WD</td>
+      <td>Ethanol/Gas</td>
+      <td>pickup</td>
+      <td>3</td>
+      <td>12/16</td>
+      <td>17/23</td>
+      <td>14/19</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>345</th>
+      <td>GMC Yukon 1500</td>
+      <td>5.3</td>
+      <td>8</td>
+      <td>Auto-6</td>
+      <td>2WD</td>
+      <td>Ethanol/Gas</td>
+      <td>standard SUV</td>
+      <td>3</td>
+      <td>12/16</td>
+      <td>17/23</td>
+      <td>14/19</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>347</th>
+      <td>GMC Yukon 1500</td>
+      <td>5.3</td>
+      <td>8</td>
+      <td>Auto-6</td>
+      <td>4WD</td>
+      <td>Ethanol/Gas</td>
+      <td>standard SUV</td>
+      <td>3</td>
+      <td>11/16</td>
+      <td>16/22</td>
+      <td>13/18</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>351</th>
+      <td>GMC Yukon 1500 XL</td>
+      <td>5.3</td>
+      <td>8</td>
+      <td>Auto-6</td>
+      <td>2WD</td>
+      <td>Ethanol/Gas</td>
+      <td>standard SUV</td>
+      <td>3</td>
+      <td>12/16</td>
+      <td>17/23</td>
+      <td>14/19</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>354</th>
+      <td>GMC Yukon XL 1500</td>
+      <td>5.3</td>
+      <td>8</td>
+      <td>Auto-6</td>
+      <td>4WD</td>
+      <td>Ethanol/Gas</td>
+      <td>standard SUV</td>
+      <td>3</td>
+      <td>11/16</td>
+      <td>15/22</td>
+      <td>12/18</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>442</th>
+      <td>JEEP Cherokee</td>
+      <td>2.4</td>
+      <td>4</td>
+      <td>Auto-9</td>
+      <td>2WD</td>
+      <td>Ethanol/Gas</td>
+      <td>small SUV</td>
+      <td>3</td>
+      <td>15/21</td>
+      <td>22/30</td>
+      <td>18/25</td>
+      <td>5</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>444</th>
+      <td>JEEP Cherokee</td>
+      <td>2.4</td>
+      <td>4</td>
+      <td>Auto-9</td>
+      <td>4WD</td>
+      <td>Ethanol/Gas</td>
+      <td>small SUV</td>
+      <td>3</td>
+      <td>14/21</td>
+      <td>21/28</td>
+      <td>17/23</td>
+      <td>5</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>462</th>
+      <td>KARMA Revero</td>
+      <td>2.0</td>
+      <td>4</td>
+      <td>Auto-1</td>
+      <td>2WD</td>
+      <td>Gasoline/Electricity</td>
+      <td>small car</td>
+      <td>1</td>
+      <td>20/59</td>
+      <td>21/61</td>
+      <td>20/60</td>
+      <td>10</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>571</th>
+      <td>MERCEDES-BENZ CLA250 4Matic</td>
+      <td>2.0</td>
+      <td>4</td>
+      <td>AutoMan-7</td>
+      <td>4WD</td>
+      <td>Ethanol/Gas</td>
+      <td>small car</td>
+      <td>5</td>
+      <td>17/24</td>
+      <td>24/32</td>
+      <td>20/27</td>
+      <td>6</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>578</th>
+      <td>MERCEDES-BENZ GLA250 4Matic</td>
+      <td>2.0</td>
+      <td>4</td>
+      <td>AutoMan-7</td>
+      <td>4WD</td>
+      <td>Ethanol/Gas</td>
+      <td>small SUV</td>
+      <td>5</td>
+      <td>17/23</td>
+      <td>23/31</td>
+      <td>19/26</td>
+      <td>5</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>584</th>
+      <td>MERCEDES-BENZ GLE350 4Matic</td>
+      <td>3.5</td>
+      <td>6</td>
+      <td>Auto-7</td>
+      <td>4WD</td>
+      <td>Ethanol/Gas</td>
+      <td>standard SUV</td>
+      <td>3</td>
+      <td>13/18</td>
+      <td>17/22</td>
+      <td>14/19</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>616</th>
+      <td>MINI Cooper SE Countryman All4</td>
+      <td>1.5</td>
+      <td>3</td>
+      <td>SemiAuto-6</td>
+      <td>4WD</td>
+      <td>Gasoline/Electricity</td>
+      <td>midsize car</td>
+      <td>3</td>
+      <td>28/63</td>
+      <td>27/66</td>
+      <td>27/65</td>
+      <td>9</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>742</th>
+      <td>TOYOTA Sequoia FFV</td>
+      <td>5.7</td>
+      <td>8</td>
+      <td>SemiAuto-6</td>
+      <td>4WD</td>
+      <td>Ethanol/Gas</td>
+      <td>standard SUV</td>
+      <td>5</td>
+      <td>9/13</td>
+      <td>13/17</td>
+      <td>10/14</td>
+      <td>1</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>747</th>
+      <td>TOYOTA Tundra FFV</td>
+      <td>5.7</td>
+      <td>8</td>
+      <td>SemiAuto-6</td>
+      <td>4WD</td>
+      <td>Ethanol/Gas</td>
+      <td>pickup</td>
+      <td>5</td>
+      <td>9/13</td>
+      <td>12/17</td>
+      <td>10/15</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>777</th>
+      <td>VOLVO S90</td>
+      <td>2.0</td>
+      <td>4</td>
+      <td>SemiAuto-8</td>
+      <td>4WD</td>
+      <td>Gasoline/Electricity</td>
+      <td>midsize car</td>
+      <td>7</td>
+      <td>26/70</td>
+      <td>33/72</td>
+      <td>29/71</td>
+      <td>10</td>
+      <td>Elite</td>
+    </tr>
+    <tr>
+      <th>789</th>
+      <td>VOLVO XC 60</td>
+      <td>2.0</td>
+      <td>4</td>
+      <td>SemiAuto-8</td>
+      <td>4WD</td>
+      <td>Gasoline/Electricity</td>
+      <td>small SUV</td>
+      <td>7</td>
+      <td>26/60</td>
+      <td>28/58</td>
+      <td>26/59</td>
+      <td>10</td>
+      <td>Elite</td>
+    </tr>
+    <tr>
+      <th>793</th>
+      <td>VOLVO XC 90</td>
+      <td>2.0</td>
+      <td>4</td>
+      <td>SemiAuto-8</td>
+      <td>4WD</td>
+      <td>Gasoline/Electricity</td>
+      <td>standard SUV</td>
+      <td>7</td>
+      <td>26/63</td>
+      <td>30/61</td>
+      <td>27/62</td>
+      <td>10</td>
+      <td>Elite</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
@@ -11924,14 +12709,126 @@ Name: cyl, dtype: int64</pre>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>提取每个混合动力行，把它们分成两个新行，一行是第一种燃料类型的值（"/" 前面的值），另一行是第二种燃料类型的值（"/" 后面的值）。现在用两个数据框把它们分开。</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 将 2018 cyl 列转换成整数</span>
-<span class="n">df_18</span><span class="p">[</span><span class="s1">&#39;cyl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_18</span><span class="p">[</span><span class="s1">&#39;cyl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 创建 2008 混合动力数据框的两个副本</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">hb_08</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># 每个混合动力车第一种燃料类型的数据</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">hb_08</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># 每个混合动力车第二种燃料类型的数据</span>
+
+<span class="c1"># 每个数据应该如下所示</span>
+<span class="n">df1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>model</th>
+      <th>displ</th>
+      <th>cyl</th>
+      <th>trans</th>
+      <th>drive</th>
+      <th>fuel</th>
+      <th>veh_class</th>
+      <th>air_pollution_score</th>
+      <th>city_mpg</th>
+      <th>hwy_mpg</th>
+      <th>cmb_mpg</th>
+      <th>greenhouse_gas_score</th>
+      <th>smartway</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>582</th>
+      <td>MERCEDES-BENZ C300</td>
+      <td>3.0</td>
+      <td>6</td>
+      <td>Auto-L7</td>
+      <td>2WD</td>
+      <td>ethanol/gas</td>
+      <td>small car</td>
+      <td>6/4</td>
+      <td>13/18</td>
+      <td>19/25</td>
+      <td>15/21</td>
+      <td>7/6</td>
+      <td>no</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>接下来，我们将使用 Pandas 的应用功能。参见 <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.apply.html">这里</a> 的文档。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 将被 &quot;/&quot; 分割的列</span>
+<span class="n">split_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fuel&#39;</span><span class="p">,</span> <span class="s1">&#39;air_pollution_score&#39;</span><span class="p">,</span> <span class="s1">&#39;city_mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;hwy_mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;cmb_mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;greenhouse_gas_score&#39;</span><span class="p">]</span>
+
+<span class="c1"># 对每个数据框副本的每个列应用分割功能</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">split_columns</span><span class="p">:</span>
+    <span class="n">df1</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">df1</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">df2</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -11941,7 +12838,616 @@ Name: cyl, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 这个数据框包含混合动力车第一种燃料类型的信息</span>
+<span class="c1"># 也就是 &quot;/&quot; 前面的值</span>
+<span class="n">df1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[8]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>model</th>
+      <th>displ</th>
+      <th>cyl</th>
+      <th>trans</th>
+      <th>drive</th>
+      <th>fuel</th>
+      <th>veh_class</th>
+      <th>air_pollution_score</th>
+      <th>city_mpg</th>
+      <th>hwy_mpg</th>
+      <th>cmb_mpg</th>
+      <th>greenhouse_gas_score</th>
+      <th>smartway</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>582</th>
+      <td>MERCEDES-BENZ C300</td>
+      <td>3.0</td>
+      <td>6</td>
+      <td>Auto-L7</td>
+      <td>2WD</td>
+      <td>ethanol</td>
+      <td>small car</td>
+      <td>6</td>
+      <td>13</td>
+      <td>19</td>
+      <td>15</td>
+      <td>7</td>
+      <td>no</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 这个数据框包含混合动力车第二种燃料类型的信息</span>
+<span class="c1"># 也就是 &quot;/&quot; 后面的值</span>
+<span class="n">df2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>model</th>
+      <th>displ</th>
+      <th>cyl</th>
+      <th>trans</th>
+      <th>drive</th>
+      <th>fuel</th>
+      <th>veh_class</th>
+      <th>air_pollution_score</th>
+      <th>city_mpg</th>
+      <th>hwy_mpg</th>
+      <th>cmb_mpg</th>
+      <th>greenhouse_gas_score</th>
+      <th>smartway</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>582</th>
+      <td>MERCEDES-BENZ C300</td>
+      <td>3.0</td>
+      <td>6</td>
+      <td>Auto-L7</td>
+      <td>2WD</td>
+      <td>gas</td>
+      <td>small car</td>
+      <td>4</td>
+      <td>18</td>
+      <td>25</td>
+      <td>21</td>
+      <td>6</td>
+      <td>no</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 将数据框组合，添加到原始数据框中</span>
+<span class="n">new_rows</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+
+<span class="c1"># 现在每辆车的每种燃料类型都有单独的行</span>
+<span class="n">new_rows</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>model</th>
+      <th>displ</th>
+      <th>cyl</th>
+      <th>trans</th>
+      <th>drive</th>
+      <th>fuel</th>
+      <th>veh_class</th>
+      <th>air_pollution_score</th>
+      <th>city_mpg</th>
+      <th>hwy_mpg</th>
+      <th>cmb_mpg</th>
+      <th>greenhouse_gas_score</th>
+      <th>smartway</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>582</th>
+      <td>MERCEDES-BENZ C300</td>
+      <td>3.0</td>
+      <td>6</td>
+      <td>Auto-L7</td>
+      <td>2WD</td>
+      <td>ethanol</td>
+      <td>small car</td>
+      <td>6</td>
+      <td>13</td>
+      <td>19</td>
+      <td>15</td>
+      <td>7</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>582</th>
+      <td>MERCEDES-BENZ C300</td>
+      <td>3.0</td>
+      <td>6</td>
+      <td>Auto-L7</td>
+      <td>2WD</td>
+      <td>gas</td>
+      <td>small car</td>
+      <td>4</td>
+      <td>18</td>
+      <td>25</td>
+      <td>21</td>
+      <td>6</td>
+      <td>no</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 丢弃原始混合动力行</span>
+<span class="n">df_08</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">hb_08</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># 添加新分割的行</span>
+<span class="n">df_08</span> <span class="o">=</span> <span class="n">df_08</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_rows</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 检查含有 &quot;/&quot; 的所有原始混合动力行是否都已删除</span>
+<span class="n">df_08</span><span class="p">[</span><span class="n">df_08</span><span class="p">[</span><span class="s1">&#39;fuel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[12]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>model</th>
+      <th>displ</th>
+      <th>cyl</th>
+      <th>trans</th>
+      <th>drive</th>
+      <th>fuel</th>
+      <th>veh_class</th>
+      <th>air_pollution_score</th>
+      <th>city_mpg</th>
+      <th>hwy_mpg</th>
+      <th>cmb_mpg</th>
+      <th>greenhouse_gas_score</th>
+      <th>smartway</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_08</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[13]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(987, 13)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#23545;-2018-&#25968;&#25454;&#38598;&#37325;&#22797;&#30456;&#21516;&#36807;&#31243;">&#23545; 2018 &#25968;&#25454;&#38598;&#37325;&#22797;&#30456;&#21516;&#36807;&#31243;<a class="anchor-link" href="#&#23545;-2018-&#25968;&#25454;&#38598;&#37325;&#22797;&#30456;&#21516;&#36807;&#31243;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 创建 2018 混合动力数据框 hb_18 的两个副本</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">hb_18</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">hb_18</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#20998;&#21106;-fuel&#12289;city_mpg&#12289;hwy_mpg&#12289;cmb_mpg-&#30340;&#20540;">&#20998;&#21106; <code>fuel</code>&#12289;<code>city_mpg</code>&#12289;<code>hwy_mpg</code>&#12289;<code>cmb_mpg</code> &#30340;&#20540;<a class="anchor-link" href="#&#20998;&#21106;-fuel&#12289;city_mpg&#12289;hwy_mpg&#12289;cmb_mpg-&#30340;&#20540;">&#182;</a></h3><p>不需要分割 <code>air_pollution_score</code> 或 <code>greenhouse_gas_score</code> 的值，因为这些列在 2018 数据集中已经是整数。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 待分割列的列表</span>
+<span class="n">split_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fuel&#39;</span><span class="p">,</span> <span class="s1">&#39;city_mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;hwy_mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;cmb_mpg&#39;</span><span class="p">]</span>
+
+<span class="c1"># 对每个数据框副本的每个列应用分割功能</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">split_columns</span><span class="p">:</span>
+    <span class="n">df1</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">df1</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">df2</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 添加这两个数据框</span>
+<span class="n">new_rows</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+
+<span class="c1"># 从原始 2018 数据框中丢弃每个混合动力行</span>
+<span class="c1"># 对 hb_18 的索引进行 Pandas 的丢弃功能，实现上述步骤</span>
+<span class="n">df_18</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">hb_18</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># 将 new_rows 添加到 df_18</span>
+<span class="n">df_18</span> <span class="o">=</span> <span class="n">df_18</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_rows</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 检查是否已删除</span>
+<span class="n">df_18</span><span class="p">[</span><span class="n">df_18</span><span class="p">[</span><span class="s1">&#39;fuel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[17]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>model</th>
+      <th>displ</th>
+      <th>cyl</th>
+      <th>trans</th>
+      <th>drive</th>
+      <th>fuel</th>
+      <th>veh_class</th>
+      <th>air_pollution_score</th>
+      <th>city_mpg</th>
+      <th>hwy_mpg</th>
+      <th>cmb_mpg</th>
+      <th>greenhouse_gas_score</th>
+      <th>smartway</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_18</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[18]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(832, 13)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#29616;&#22312;&#21487;&#20197;&#32487;&#32493;&#36827;&#34892;-air_pollution_score-&#25152;&#38656;&#30340;&#26356;&#25913;&#65292;&#22914;&#19979;&#25152;&#31034;&#65306;">&#29616;&#22312;&#21487;&#20197;&#32487;&#32493;&#36827;&#34892; <code>air_pollution_score</code> &#25152;&#38656;&#30340;&#26356;&#25913;&#65292;&#22914;&#19979;&#25152;&#31034;&#65306;<a class="anchor-link" href="#&#29616;&#22312;&#21487;&#20197;&#32487;&#32493;&#36827;&#34892;-air_pollution_score-&#25152;&#38656;&#30340;&#26356;&#25913;&#65292;&#22914;&#19979;&#25152;&#31034;&#65306;">&#182;</a></h3><ul>
+<li>2008：将字符串转换成浮点</li>
+<li>2018：将整数转换成浮点</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 对于 2008 空气污染列，将字符串转换成浮点</span>
+<span class="n">df_08</span><span class="p">[</span><span class="s1">&#39;air_pollution_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df_08</span><span class="p">[</span><span class="s1">&#39;air_pollution_score&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 对于 2018 空气污染列，将整数转换成浮点</span>
+<span class="n">df_18</span><span class="p">[</span><span class="s1">&#39;air_pollution_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df_18</span><span class="p">[</span><span class="s1">&#39;air_pollution_score&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_08</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data_08.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>fix_datatypes_cyl-zh</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>results_merged-zh</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11775,10 +11775,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#20462;&#27491;-cyl-&#25968;&#25454;&#31867;&#22411;">&#20462;&#27491; <code>cyl</code> &#25968;&#25454;&#31867;&#22411;<a class="anchor-link" href="#&#20462;&#27491;-cyl-&#25968;&#25454;&#31867;&#22411;">&#182;</a></h1><ul>
-<li>2008：从字符串中提取整数</li>
-<li>2018：将浮点转换成整数</li>
-</ul>
+<h1 id="&#25968;&#25454;&#38598;&#21512;&#24182;&#32467;&#26524;">&#25968;&#25454;&#38598;&#21512;&#24182;&#32467;&#26524;<a class="anchor-link" href="#&#25968;&#25454;&#38598;&#21512;&#24182;&#32467;&#26524;">&#182;</a></h1><p>务必使用新的数据集，<code>combined_dataset.csv</code></p>
 
 </div>
 </div>
@@ -11790,53 +11787,10 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 加载数据集</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">df_08</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data_08.csv&#39;</span><span class="p">)</span>
-<span class="n">df_18</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data_18.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;combined_dataset.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 检查 2008 cyl 列的值数量</span>
-<span class="n">df_08</span><span class="p">[</span><span class="s1">&#39;cyl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[2]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(6 cyl)     409
-(4 cyl)     283
-(8 cyl)     199
-(5 cyl)      48
-(12 cyl)     30
-(10 cyl)     14
-(2 cyl)       2
-(16 cyl)      1
-Name: cyl, dtype: int64</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -11845,18 +11799,42 @@ Name: cyl, dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>阅读  <a href="https://stackoverflow.com/questions/35376387/extract-int-from-string-in-pandas">这里</a>，了解如何在下一步用 Pandas 从字符串中提取整数</p>
-
+<h3 id="Q6:-&#22312;-2008-&#24180;&#24320;&#22987;&#29983;&#20135;&#65292;&#19988;&#30446;&#21069;&#20173;&#22312;&#29983;&#20135;&#30340;&#25152;&#26377;&#36710;&#22411;&#20013;&#65292;mpg-&#25552;&#39640;&#20102;&#22810;&#23569;&#65292;&#21738;&#20010;&#36710;&#22411;&#25552;&#39640;&#26368;&#22810;&#65311;">Q6: &#22312; 2008 &#24180;&#24320;&#22987;&#29983;&#20135;&#65292;&#19988;&#30446;&#21069;&#20173;&#22312;&#29983;&#20135;&#30340;&#25152;&#26377;&#36710;&#22411;&#20013;&#65292;mpg &#25552;&#39640;&#20102;&#22810;&#23569;&#65292;&#21738;&#20010;&#36710;&#22411;&#25552;&#39640;&#26368;&#22810;&#65311;<a class="anchor-link" href="#Q6:-&#22312;-2008-&#24180;&#24320;&#22987;&#29983;&#20135;&#65292;&#19988;&#30446;&#21069;&#20173;&#22312;&#29983;&#20135;&#30340;&#25152;&#26377;&#36710;&#22411;&#20013;&#65292;mpg-&#25552;&#39640;&#20102;&#22810;&#23569;&#65292;&#21738;&#20010;&#36710;&#22411;&#25552;&#39640;&#26368;&#22810;&#65311;">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 从 2008 cyl 列的字符串中提取整数</span>
-<span class="n">df_08</span><span class="p">[</span><span class="s1">&#39;cyl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_08</span><span class="p">[</span><span class="s1">&#39;cyl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;(\d+)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model_mpg</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">)[[</span><span class="s1">&#39;cmb_mpg_2008&#39;</span><span class="p">,</span> <span class="s1">&#39;cmb_mpg&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model_mpg</span><span class="p">[</span><span class="s1">&#39;mpg_change&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model_mpg</span><span class="p">[</span><span class="s1">&#39;cmb_mpg&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">model_mpg</span><span class="p">[</span><span class="s1">&#39;cmb_mpg_2008&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model_mpg</span><span class="p">[</span><span class="s1">&#39;mpg_change&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -11869,86 +11847,17 @@ Name: cyl, dtype: int64</pre>
 
 <div class="output_area">
 
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/opt/conda/lib/python3.6/site-packages/ipykernel_launcher.py:2: FutureWarning: currently extract(expand=None) means expand=False (return Index/Series/DataFrame) but in a future version of pandas this will be changed to expand=True (return DataFrame)
-  
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 再次检查 2008 cyl 列的值数量，确认更改</span>
-<span class="n">df_08</span><span class="p">[</span><span class="s1">&#39;cyl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[5]:</div>
+<div class="prompt output_prompt">Out[8]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>6     409
-4     283
-8     199
-5      48
-12     30
-10     14
-2       2
-16      1
-Name: cyl, dtype: int64</pre>
+<pre>&#39;VOLVO XC 90&#39;</pre>
 </div>
 
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 将 2018 cyl 列转换成整数</span>
-<span class="n">df_18</span><span class="p">[</span><span class="s1">&#39;cyl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_18</span><span class="p">[</span><span class="s1">&#39;cyl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_08</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data_08.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">df_18</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data_18.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-
-</div>
 </div>
 </div>
 

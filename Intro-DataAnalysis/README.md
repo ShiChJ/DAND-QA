@@ -109,7 +109,11 @@ jupyter notebook --NotebookApp.iopub_data_rate_limit=10000000000
 
 ![](https://i.imgur.com/V5HdRn2.png)
 
-**15. 有没有其他数据分析相关的书籍和学习资料？**
+**15. 如何将上一节练习生成的数据导入到下一节的Workspace中？**
+
+请参考本页面的.mp4视频文件“Workspace中导入上一节生成的数据.mp4”。
+
+**16. 有没有其他数据分析相关的书籍和学习资料？**
 
 链接：https://pan.baidu.com/s/1eUfFebK 密码：wio6
 

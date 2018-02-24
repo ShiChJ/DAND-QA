@@ -308,7 +308,7 @@ def print_list(l, numbered = False, bullet_character = '-'):
             print("{} {}".format(bullet_character, element))
 
 
-#找到最大公因子
+#求幂
 # TODO: print e to the power of 3 using the math module
 import math
 print(math.exp(3))

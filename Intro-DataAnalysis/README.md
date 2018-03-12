@@ -32,6 +32,18 @@
 
 ![](https://i.imgur.com/PFC3FEb.png)
 
+### 一些常见概念、参数、函数等的解释（大部分链接为英文）
+
+- Pandas部分内置方法中的inplace参数：http://blog.sciencenet.cn/blog-645086-884388.html
+- Lambda表达式：https://www.cnblogs.com/evening/archive/2012/03/29/2423554.html
+- 直方图参数说明：http://www.cnblogs.com/python-life/articles/6084059.html
+- Pandas内置方法rename中的“index=str”解释：https://stackoverflow.com/questions/42080360/what-is-the-parameter-index-in-pandas-dataframe-rename-method
+- Matplotlib图例中文乱码的解决方法：https://www.zhihu.com/question/25404709
+- Python中的浅拷贝和深拷贝：https://www.jianshu.com/p/efa9dd51f5cc
+- 使用subplot同时画多张图表：https://matplotlib.org/gallery/subplots_axes_and_figures/subplot.html
+- 一张图中画多组直方图：https://matplotlib.org/examples/statistics/histogram_demo_multihist.html
+- Notebook中出现SettingWithCopyWarning警告的解释：https://stackoverflow.com/questions/20625582/how-to-deal-with-settingwithcopywarning-in-pandas
+
 ## 在本地环境做练习和项目时可能遇到的问题及答疑汇总
 
 **1. Conda更新很慢/包下载很慢/出现Time Out错误或类似提示等**

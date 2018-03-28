@@ -16,3 +16,5 @@
   - Alcoholism = True or False 
   - Handcap = True or False 
   - SMS_received = 1 or more messages sent to the patient. - No-show = True or False. 
+
+3. 足球数据库补充材料：见本页面soccer.zip

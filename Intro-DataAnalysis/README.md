@@ -151,11 +151,6 @@ jupyter notebook --NotebookApp.iopub_data_rate_limit=10000000000
 
 ![](https://i.imgur.com/V5HdRn2.png)
 
-**15. 有没有其他数据分析相关的书籍和学习资料？**
-
-链接：https://pan.baidu.com/s/1eUfFebK 密码：wio6
-
-网盘内容会不定期更新。注意，**请不要用微信自带的浏览器打开**，否则会显示链接不存在。
 
 
 

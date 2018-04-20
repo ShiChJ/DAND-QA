@@ -46,12 +46,9 @@
 
 ## 在本地环境做练习和项目时可能遇到的问题及答疑汇总
 
-**1. Conda更新很慢/包下载很慢/出现Time Out错误或类似提示等**
+**1. conda/pip更新很慢/包下载很慢/下载中断/出现Time Out错误或类似提示等；
 
-用以下任一种方法可以解决：
-
-- 翻墙（自行搜索软件下载，或者和助教联系）；
-- 使用清华大学提供的镜像源，具体操作方式见[此链接](https://mirror.tuna.tsinghua.edu.cn/help/anaconda/)
+由于不可抗力因素，中国大陆用户下载第三方库时可能会出现此情况。推荐使用清华大学提供的镜像源，具体操作方式见[此链接](https://mirror.tuna.tsinghua.edu.cn/help/anaconda/)。另外，也可以无需pip命令设置镜像源，具体可见[此链接](https://mirrors.tuna.tsinghua.edu.cn/news/#oh-my-tuna)。
 
 **2. 如何同时安装Python3和Python2？**
 

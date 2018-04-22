@@ -51,6 +51,29 @@ def how_many_days(month_number):
 print(how_many_days(8))
 
 
+#编写服务器日志信息
+username = "Kinari"
+timestamp = "04:50"
+url = "http://petshop.com/pets/mammals/cats"
+print(username+' accessed the site '+url+' at '+timestamp+'.')
+# TODO: print a log message using the variables above.
+# The message should have the same format as this one:
+# "Yogesh accessed the site http://petshop.com/pets/reptiles/pythons at 16:20."
+
+
+#len
+given_name = "William"
+middle_names = "Bradley"
+family_name = "Pitt"
+
+name_length = len(given_name+' '+middle_names+' '+family_name)
+
+# Now we check to make sure that the name fits within the driving license character limit
+# Nothing you need to do here
+driving_license_character_limit = 28
+print(name_length <= driving_license_character_limit)
+
+
 #列表切片
 eclipse_dates = ['June 21, 2001', 'December 4, 2002', 'November 23, 2003',
                  'March 29, 2006', 'August 1, 2008', 'July 22, 2009',

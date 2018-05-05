@@ -32,6 +32,10 @@
 
 ![](https://i.imgur.com/PFC3FEb.png)
 
+**6. 做项目时选择电影数据集，如何将其中的Genres/Director/Production Company等包含“|”的字段进行分割处理？**
+
+请参考[此链接中的解决方案](https://zhuanlan.zhihu.com/p/28337202)（感谢学员Mindlake提供的链接） 
+
 ### 一些常见概念、参数、函数等的解释（大部分链接为英文）
 
 - Pandas部分内置方法中的inplace参数：http://blog.sciencenet.cn/blog-645086-884388.html
